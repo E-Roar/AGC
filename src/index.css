@@ -1,0 +1,437 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Neomorphism Base Colors - Soft warm gray */
+    --background: 220 20% 92%;
+    --foreground: 220 25% 20%;
+
+    /* Card surfaces for neomorphism */
+    --card: 220 20% 92%;
+    --card-foreground: 220 25% 20%;
+
+    --popover: 220 20% 95%;
+    --popover-foreground: 220 25% 20%;
+
+    /* Vibrant colorful palette matching logo */
+    --primary: 45 100% 50%;
+    --primary-foreground: 220 25% 15%;
+
+    --secondary: 280 70% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 15% 85%;
+    --muted-foreground: 220 15% 45%;
+
+    --accent: 195 85% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Additional vibrant colors from logo */
+    --melrose-yellow: 45 100% 55%;
+    --melrose-red: 355 85% 55%;
+    --melrose-green: 140 70% 45%;
+    --melrose-blue: 195 85% 50%;
+    --melrose-purple: 280 70% 55%;
+    --melrose-orange: 25 95% 55%;
+
+    --border: 220 15% 82%;
+    --input: 220 15% 88%;
+    --ring: 280 70% 55%;
+
+    --radius: 1rem;
+
+    /* Neomorphism shadows */
+    --neo-shadow-light: -8px -8px 20px 0px hsl(0 0% 100% / 0.8);
+    --neo-shadow-dark: 8px 8px 20px 0px hsl(220 20% 75% / 0.6);
+    --neo-shadow-inset-light: inset -4px -4px 10px 0px hsl(0 0% 100% / 0.7);
+    --neo-shadow-inset-dark: inset 4px 4px 10px 0px hsl(220 20% 78% / 0.5);
+
+    /* Glassmorphism */
+    --glass-bg: hsl(0 0% 100% / 0.25);
+    --glass-border: hsl(0 0% 100% / 0.4);
+    --glass-blur: 20px;
+
+    /* Colorful glows */
+    --glow-purple: 0 0 40px hsl(280 70% 55% / 0.4);
+    --glow-blue: 0 0 40px hsl(195 85% 50% / 0.4);
+    --glow-pink: 0 0 40px hsl(330 85% 60% / 0.4);
+    --glow-yellow: 0 0 40px hsl(45 100% 55% / 0.4);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 25% 12%;
+    --foreground: 220 15% 92%;
+
+    --card: 220 25% 14%;
+    --card-foreground: 220 15% 92%;
+
+    --popover: 220 25% 16%;
+    --popover-foreground: 220 15% 92%;
+
+    --primary: 45 100% 55%;
+    --primary-foreground: 220 25% 10%;
+
+    --secondary: 280 70% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 20% 20%;
+    --muted-foreground: 220 15% 65%;
+
+    --accent: 195 85% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 75% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 22%;
+    --input: 220 20% 18%;
+    --ring: 280 70% 55%;
+
+    --neo-shadow-light: -8px -8px 20px 0px hsl(220 25% 18% / 0.6);
+    --neo-shadow-dark: 8px 8px 20px 0px hsl(220 30% 6% / 0.8);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-padding-top: 100px;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  [dir="rtl"] body {
+    font-family: 'Tajawal', sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  [dir="rtl"] h1,
+  [dir="rtl"] h2,
+  [dir="rtl"] h3,
+  [dir="rtl"] h4,
+  [dir="rtl"] h5,
+  [dir="rtl"] h6 {
+    font-family: 'Tajawal', sans-serif;
+  }
+
+  /* Reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Mobile specific - reduce animation complexity */
+  @media (max-width: 768px) {
+    .animate-float,
+    .animate-pulse-slow,
+    .animate-glow,
+    .glow-purple,
+    .glow-blue,
+    .glow-rainbow {
+      animation: none !important;
+      box-shadow: none !important;
+    }
+
+    /* Reduce blur effects on mobile */
+    .glass,
+    .glass-strong {
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+    }
+
+    /* Simplify shadows on mobile */
+    .shadow-neo-lg {
+      box-shadow:
+        -4px -4px 12px 0px hsl(0 0% 100% / 0.7),
+        4px 4px 12px 0px hsl(220 20% 75% / 0.5) !important;
+    }
+  }
+
+  /* Touch-friendly tap targets */
+  @media (hover: none) and (pointer: coarse) {
+    button, a, [role="button"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
+
+    /* Remove hover effects on touch devices */
+    .hover\:scale-105:hover,
+    .group-hover\:scale-110:hover,
+    .hover\:shadow-neo-lg:hover {
+      transform: none !important;
+    }
+  }
+}
+
+@layer components {
+
+  /* Neomorphism styles */
+  .neo-raised {
+    background: hsl(var(--background));
+    box-shadow: var(--neo-shadow-light), var(--neo-shadow-dark);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .neo-raised:hover {
+    box-shadow:
+      -10px -10px 25px 0px hsl(0 0% 100% / 0.85),
+      10px 10px 25px 0px hsl(220 20% 72% / 0.65);
+    transform: translateY(-2px);
+  }
+
+  .neo-pressed {
+    background: hsl(var(--background));
+    box-shadow: var(--neo-shadow-inset-light), var(--neo-shadow-inset-dark);
+  }
+
+  .neo-button {
+    background: hsl(var(--background));
+    box-shadow: var(--neo-shadow-light), var(--neo-shadow-dark);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .neo-button:hover {
+    box-shadow:
+      -4px -4px 12px 0px hsl(0 0% 100% / 0.9),
+      4px 4px 12px 0px hsl(220 20% 75% / 0.7);
+  }
+
+  .neo-button:active {
+    box-shadow: var(--neo-shadow-inset-light), var(--neo-shadow-inset-dark);
+  }
+
+  /* Glassmorphism styles */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+  }
+
+  .glass-strong {
+    background: hsl(0 0% 100% / 0.35);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid hsl(0 0% 100% / 0.5);
+  }
+
+  /* Colorful glow effects */
+  .glow-purple {
+    box-shadow: var(--glow-purple);
+  }
+
+  .glow-blue {
+    box-shadow: var(--glow-blue);
+  }
+
+  .glow-pink {
+    box-shadow: var(--glow-pink);
+  }
+
+  .glow-yellow {
+    box-shadow: var(--glow-yellow);
+  }
+
+  .glow-rainbow {
+    box-shadow:
+      0 0 30px hsl(280 70% 55% / 0.3),
+      0 0 60px hsl(195 85% 50% / 0.2),
+      0 0 90px hsl(45 100% 55% / 0.15);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg,
+        hsl(var(--melrose-yellow)) 0%,
+        hsl(var(--melrose-red)) 25%,
+        hsl(var(--melrose-purple)) 50%,
+        hsl(var(--melrose-blue)) 75%,
+        hsl(var(--melrose-green)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Animated gradient background */
+  .animated-gradient-bg {
+    background: linear-gradient(-45deg,
+        hsl(var(--background)),
+        hsl(220 20% 88%),
+        hsl(280 30% 92%),
+        hsl(195 30% 90%),
+        hsl(var(--background)));
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* 3D perspective for carousel */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  /* Smooth scroll sections */
+  section {
+    scroll-margin-top: 100px;
+  }
+}
+
+@layer utilities {
+
+  /* Animation utilities */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-bounce-soft {
+    animation: bounceSoft 2s ease-in-out infinite;
+  }
+
+  @keyframes bounceSoft {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 20px hsl(280 70% 55% / 0.3);
+    }
+
+    to {
+      box-shadow: 0 0 40px hsl(280 70% 55% / 0.6), 0 0 60px hsl(195 85% 50% / 0.3);
+    }
+  }
+
+  .animate-spin-slow {
+    animation: spin 20s linear infinite;
+  }
+
+  /* Stagger animations for children */
+  .stagger-children>* {
+    animation: fadeInUp 0.6s ease-out both;
+  }
+
+  .stagger-children>*:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+
+  .stagger-children>*:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .stagger-children>*:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+
+  .stagger-children>*:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+
+  .stagger-children>*:nth-child(5) {
+    animation-delay: 0.5s;
+  }
+
+  .stagger-children>*:nth-child(6) {
+    animation-delay: 0.6s;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

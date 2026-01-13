@@ -10,35 +10,31 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow-neo hover:shadow-neo-lg hover:-translate-y-1 active:shadow-neo-inset active:translate-y-0",
+          "bg-primary text-primary-foreground shadow-lg hover:translate-y-[-2px] hover:shadow-xl",
         destructive:
-          "bg-destructive text-destructive-foreground shadow-neo hover:shadow-neo-lg hover:-translate-y-1",
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
-          "border-2 border-border bg-background shadow-neo hover:shadow-neo-lg hover:-translate-y-1 hover:border-primary",
+          "border-2 border-primary/20 bg-white/5 backdrop-blur-sm text-foreground hover:bg-primary/10 hover:border-primary/40",
         secondary:
-          "bg-secondary text-secondary-foreground shadow-neo hover:shadow-neo-lg hover:-translate-y-1",
-        ghost: 
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        ghost:
           "hover:bg-accent hover:text-accent-foreground rounded-xl",
-        link: 
+        link:
           "text-primary underline-offset-4 hover:underline",
-        neo: 
-          "bg-background text-foreground shadow-neo hover:shadow-neo-lg hover:-translate-y-1 active:shadow-neo-inset active:translate-y-0",
-        neoPressed:
-          "bg-background text-foreground shadow-neo-inset",
         gradient:
-          "bg-gradient-to-r from-melrose-purple via-melrose-blue to-melrose-green text-white shadow-glow-purple hover:shadow-glow-rainbow hover:-translate-y-1",
+          "bg-gradient-to-r from-melrose-purple via-melrose-blue to-melrose-green text-white shadow-lg hover:shadow-xl hover:translate-y-[-4px] active:translate-y-0",
         glass:
-          "glass text-foreground border border-white/30 hover:bg-white/40 hover:-translate-y-1",
+          "glass-mid text-foreground border border-white/20 hover:bg-white/30 hover:translate-y-[-2px] shadow-md",
         melroseYellow:
-          "bg-melrose-yellow text-foreground shadow-neo hover:shadow-neo-lg hover:-translate-y-1 font-bold",
+          "bg-melrose-yellow text-foreground font-bold hover:opacity-90 shadow-md",
         melroseRed:
-          "bg-melrose-red text-white shadow-neo hover:shadow-neo-lg hover:-translate-y-1 font-bold",
+          "bg-melrose-red text-white font-bold hover:opacity-90 shadow-md",
         melroseBlue:
-          "bg-melrose-blue text-white shadow-neo hover:shadow-neo-lg hover:-translate-y-1 font-bold",
+          "bg-melrose-blue text-white font-bold hover:opacity-90 shadow-md",
         melrosePurple:
-          "bg-melrose-purple text-white shadow-neo hover:shadow-neo-lg hover:-translate-y-1 font-bold",
+          "bg-melrose-purple text-white font-bold hover:opacity-90 shadow-md",
         melroseGreen:
-          "bg-melrose-green text-white shadow-neo hover:shadow-neo-lg hover:-translate-y-1 font-bold",
+          "bg-melrose-green text-white font-bold hover:opacity-90 shadow-md",
       },
       size: {
         default: "h-12 px-6 py-3",
@@ -58,7 +54,7 @@ const buttonVariants = cva(
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+  VariantProps<typeof buttonVariants> {
   asChild?: boolean;
 }
 

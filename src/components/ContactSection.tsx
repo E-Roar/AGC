@@ -36,7 +36,7 @@ export const ContactSection = () => {
     try {
       // Create WhatsApp message without manual encoding
       const text =
-        `👋 *Bonjour Les Écoles Melrose !*\n\n` +
+        `👋 *Bonjour Georges Claude Academy !*\n\n` +
         `📄 *Je souhaite faire une demande d'inscription :*\n\n` +
         `👤 *Parent :* ${formData.parentName}\n` +
         `👶 *Enfant :* ${formData.childName}\n` +
@@ -86,7 +86,7 @@ export const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 md:py-32 relative overflow-hidden">
+    <section id="contact" className="py-20 md:py-32 relative overflow-hidden bg-transparent">
       {/* Background decorations */}
       <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-melrose-green/10 blur-3xl" />
       <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-melrose-yellow/10 blur-3xl" />
@@ -98,22 +98,24 @@ export const ContactSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold font-display mb-4">
-            <span className="gradient-text">{contact.highlight}</span> {contact.title}
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-quicksand rtl:font-tajawal">
-            {contact.subtitle}
-          </p>
+          <div className="glass-high rounded-[2rem] p-6 border border-white/30 backdrop-blur-sm inline-block">
+            <h2 className="text-3xl md:text-5xl font-bold font-display mb-4 text-white drop-shadow-lg">
+              <span className="gradient-text brightness-150">{contact.highlight}</span> {contact.title}
+            </h2>
+            <p className="text-xl text-white/90 max-w-2xl mx-auto font-quicksand rtl:font-tajawal drop-shadow-md">
+              {contact.subtitle}
+            </p>
+          </div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 text-white">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <Card className="overflow-hidden">
+            <Card className="overflow-hidden bg-white/5 backdrop-blur-md border-white/20 shadow-none">
               <div className="h-2 bg-gradient-to-r from-melrose-yellow via-melrose-red to-melrose-purple" />
               <CardHeader>
                 <CardTitle className="flex items-center gap-3">
@@ -127,31 +129,31 @@ export const ContactSection = () => {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-sm font-medium mb-2 block">Nom du parent *</label>
+                      <label className="text-sm font-bold text-white mb-2 block uppercase tracking-wider">Nom du parent *</label>
                       <Input
                         name="parentName"
                         value={formData.parentName}
                         onChange={handleChange}
                         placeholder="Votre nom complet"
                         required
-                        className="font-quicksand rtl:font-tajawal"
+                        className="font-quicksand rtl:font-tajawal bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:bg-white/5 focus:border-white/30 transition-colors shadow-none"
                       />
                     </div>
                     <div>
-                      <label className="text-sm font-medium mb-2 block">Nom de l'enfant *</label>
+                      <label className="text-sm font-bold text-white mb-2 block uppercase tracking-wider">Nom de l'enfant *</label>
                       <Input
                         name="childName"
                         value={formData.childName}
                         onChange={handleChange}
                         placeholder="Nom de l'enfant"
                         required
-                        className="font-quicksand rtl:font-tajawal"
+                        className="font-quicksand rtl:font-tajawal bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:bg-white/5 focus:border-white/30 transition-colors shadow-none"
                       />
                     </div>
                   </div>
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-sm font-medium mb-2 block">Email *</label>
+                      <label className="text-sm font-bold text-white mb-2 block uppercase tracking-wider">Email *</label>
                       <Input
                         type="email"
                         name="email"
@@ -159,11 +161,11 @@ export const ContactSection = () => {
                         onChange={handleChange}
                         placeholder="votre@email.com"
                         required
-                        className="font-quicksand rtl:font-tajawal"
+                        className="font-quicksand rtl:font-tajawal bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:bg-white/5 focus:border-white/30 transition-colors shadow-none"
                       />
                     </div>
                     <div>
-                      <label className="text-sm font-medium mb-2 block">Téléphone *</label>
+                      <label className="text-sm font-bold text-white mb-2 block uppercase tracking-wider">Téléphone *</label>
                       <Input
                         type="tel"
                         name="phone"
@@ -171,37 +173,37 @@ export const ContactSection = () => {
                         onChange={handleChange}
                         placeholder="+212 6XX-XXXXXX"
                         required
-                        className="font-quicksand rtl:font-tajawal"
+                        className="font-quicksand rtl:font-tajawal bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:bg-white/5 focus:border-white/30 transition-colors shadow-none"
                       />
                     </div>
                   </div>
                   <div>
-                    <label className="text-sm font-medium mb-2 block">Âge de l'enfant *</label>
+                    <label className="text-sm font-bold text-white mb-2 block uppercase tracking-wider">Âge de l'enfant *</label>
                     <Input
                       name="childAge"
                       value={formData.childAge}
                       onChange={handleChange}
                       placeholder="Ex: 5 ans"
                       required
-                      className="font-quicksand rtl:font-tajawal"
+                      className="font-quicksand rtl:font-tajawal bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:bg-white/5 focus:border-white/30 transition-colors shadow-none"
                     />
                   </div>
                   <div>
-                    <label className="text-sm font-medium mb-2 block">Message (optionnel)</label>
+                    <label className="text-sm font-bold text-white mb-2 block uppercase tracking-wider">Message (optionnel)</label>
                     <Textarea
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Des informations supplémentaires..."
                       rows={4}
-                      className="font-quicksand rtl:font-tajawal"
+                      className="font-quicksand rtl:font-tajawal bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:bg-white/5 focus:border-white/30 transition-colors shadow-none"
                     />
                   </div>
                   <Button
                     type="submit"
                     variant="gradient"
                     size="lg"
-                    className="w-full"
+                    className="w-full shadow-none"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
@@ -243,13 +245,13 @@ export const ContactSection = () => {
                   transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
                   className="block"
                 >
-                  <Card className="h-full p-4 hover:-translate-y-1 transition-all cursor-pointer">
+                  <Card className="h-full p-4 bg-white/5 backdrop-blur-md border-white/20 transition-all cursor-pointer shadow-none hover:bg-white/10">
                     <div className="flex flex-col items-center text-center gap-2">
-                      <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-melrose-purple/20 to-melrose-blue/20 flex items-center justify-center">
-                        <item.icon className="w-6 h-6 text-melrose-purple" />
+                      <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center transition-transform">
+                        <item.icon className="w-6 h-6 text-white" />
                       </div>
-                      <span className="text-xs text-muted-foreground">{item.label}</span>
-                      <span className="text-sm font-medium">{item.value}</span>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-white/60">{item.label}</span>
+                      <span className="text-sm font-semibold text-white">{item.value}</span>
                     </div>
                   </Card>
                 </motion.a>
@@ -257,27 +259,27 @@ export const ContactSection = () => {
             </div>
 
             {/* WhatsApp CTA */}
-            <Card variant="glass" className="p-6 glow-rainbow">
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-16 rounded-2xl bg-melrose-green flex items-center justify-center shadow-neo">
+            <Card className="p-6 bg-white/5 backdrop-blur-md border-white/20 shadow-none relative overflow-hidden">
+              <div className="flex items-center gap-4 relative z-10">
+                <div className="w-16 h-16 rounded-2xl bg-melrose-green flex items-center justify-center shadow-md brightness-110">
                   <MessageCircle className="w-8 h-8 text-white" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-bold font-display text-lg">{contact.whatsappCta}</h3>
-                  <p className="text-sm text-muted-foreground">Réponse rapide garantie !</p>
+                  <h3 className="font-bold font-display text-lg text-white">{contact.whatsappCta}</h3>
+                  <p className="text-sm text-white/70">Réponse rapide garantie !</p>
                 </div>
               </div>
               <Button
                 variant="melroseGreen"
                 size="lg"
-                className="w-full mt-4"
+                className="w-full mt-4 text-white shadow-none brightness-110"
                 onClick={() => {
-                  const text = `👋 *Bonjour Les Écoles Melrose !* \uD83C\uDFEB\nJe souhaite avoir plus d'informations sur votre établissement.`;
+                  const text = `👋 *Bonjour Georges Claude Academy !* \uD83C\uDFEB\nJe souhaite avoir plus d'informations sur votre établissement.`;
                   const params = new URLSearchParams({ phone: '212652561659', text });
                   window.open(`https://api.whatsapp.com/send?${params.toString()}`, '_blank');
                 }}
               >
-                <MessageCircle className="w-5 h-5" />
+                <MessageCircle className="w-5 h-5 mr-2" />
                 Ouvrir WhatsApp
               </Button>
             </Card>
@@ -290,10 +292,12 @@ export const ContactSection = () => {
                   initial={{ opacity: 0, x: 20 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
-                  className="flex items-center gap-3 p-3 rounded-xl shadow-neo-sm bg-background"
+                  className="flex items-center gap-3 p-4 rounded-xl bg-white/5 backdrop-blur-md border border-white/20 shadow-none transition-all"
                 >
-                  <CheckCircle className="w-5 h-5 text-melrose-green" />
-                  <span className="text-sm font-medium font-quicksand rtl:font-tajawal">{feature}</span>
+                  <div className="w-6 h-6 rounded-full bg-melrose-green/20 flex items-center justify-center transition-transform">
+                    <CheckCircle className="w-4 h-4 text-melrose-green brightness-125" />
+                  </div>
+                  <span className="text-sm font-bold font-quicksand rtl:font-tajawal text-white">{feature}</span>
                 </motion.div>
               ))}
             </div>

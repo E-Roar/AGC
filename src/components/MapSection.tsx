@@ -28,7 +28,7 @@ export const MapSection = () => {
   };
 
   return (
-    <section id="localisation" className="py-20 md:py-32 relative overflow-hidden bg-gradient-to-b from-background via-muted/30 to-background">
+    <section id="localisation" className="py-20 md:py-32 relative overflow-hidden bg-transparent">
       {/* Background decorations */}
       <div className="absolute top-20 right-10 w-72 h-72 rounded-full bg-melrose-blue/10 blur-3xl" />
       <div className="absolute bottom-20 left-10 w-72 h-72 rounded-full bg-melrose-purple/10 blur-3xl" />
@@ -40,12 +40,14 @@ export const MapSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold font-display mb-4">
-            Notre <span className="gradient-text">Localisation</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Venez nous rendre visite pour découvrir notre école et rencontrer notre équipe pédagogique.
-          </p>
+          <div className="bg-white/5 rounded-[2rem] p-6 border border-white/20 backdrop-blur-md inline-block shadow-none">
+            <h2 className="text-3xl md:text-5xl font-bold font-display mb-4 text-white drop-shadow-lg">
+              Notre <span className="gradient-text brightness-150">Localisation</span>
+            </h2>
+            <p className="text-lg text-white/90 max-w-2xl mx-auto drop-shadow-md">
+              Venez nous rendre visite pour découvrir notre école et rencontrer notre équipe pédagogique.
+            </p>
+          </div>
         </motion.div>
 
         <motion.div
@@ -53,13 +55,13 @@ export const MapSection = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <Card className="overflow-hidden">
+          <Card className="overflow-hidden bg-white/5 backdrop-blur-md border-white/20 shadow-none">
             {/* Map container with neomorphism frame */}
             <div className="relative">
-               <div className="aspect-[16/9] md:aspect-[21/9] relative overflow-hidden rounded-t-3xl bg-muted z-0">
-                <MapContainer 
-                  center={position} 
-                  zoom={15} 
+              <div className="aspect-[16/9] md:aspect-[21/9] relative overflow-hidden rounded-t-3xl bg-white/10 z-0">
+                <MapContainer
+                  center={position}
+                  zoom={15}
                   scrollWheelZoom={false}
                   touchZoom={false}
                   doubleClickZoom={false}
@@ -74,8 +76,8 @@ export const MapSection = () => {
                     <Popup>
                       <div className="text-center">
                         <img src={logo} alt="Melrose" className="w-12 h-12 mx-auto mb-2" />
-                        <span className="font-bold">Les Écoles Melrose</span><br />
-                        169, Wassat Al Jadida, Hay Al Matar
+                        <span className="font-bold">Georges Claude Academy</span><br />
+                        Académie Georges Claude, centre Sidi Bouzid, El Jadida
                       </div>
                     </Popup>
                   </Marker>
@@ -83,29 +85,30 @@ export const MapSection = () => {
               </div>
 
               {/* Map overlay with CTA */}
-              <div className="p-6 bg-background border-t border-border relative z-10">
+              <div className="p-6 bg-white/5 backdrop-blur-md border-t border-white/10 relative z-10">
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div className="flex items-center gap-3">
                     <motion.div
                       whileHover={{ scale: 1.1 }}
-                      className="w-12 h-12 rounded-2xl bg-melrose-blue/20 flex items-center justify-center shadow-neo-sm"
+                      className="w-12 h-12 rounded-2xl bg-melrose-blue/20 flex items-center justify-center shadow-none"
                     >
                       <MapPin className="w-6 h-6 text-melrose-blue" />
                     </motion.div>
-                    <div>
+                    <div className="text-white">
                       <p className="font-bold font-display">El Jadida, Maroc</p>
-                      <p className="text-sm text-muted-foreground">Facilement accessible</p>
+                      <p className="text-sm text-white/70">Facilement accessible</p>
                     </div>
                   </div>
                   <div className="flex gap-3">
                     <Button
-                      variant="neo"
+                      variant="outline"
+                      className="border-white/20 text-white hover:bg-white/10 hover:text-white"
                       onClick={() => window.open('tel:+212652561659', '_self')}
                     >
                       <Phone className="w-5 h-5" />
                       Appeler
                     </Button>
-                    <Button variant="gradient" onClick={openGoogleMaps}>
+                    <Button variant="gradient" onClick={openGoogleMaps} className="shadow-none">
                       <Navigation className="w-5 h-5" />
                       Itinéraire
                     </Button>

@@ -9,11 +9,14 @@ import { Chatbot } from '@/components/Chatbot';
 import { Footer } from '@/components/Footer';
 import { Preloader } from '@/components/Preloader';
 
+import { GlobalParallaxBackground } from '@/components/GlobalParallaxBackground';
+
 const Index = () => {
   return (
     <>
       <Preloader />
-      <main className="min-h-screen">
+      <GlobalParallaxBackground />
+      <main className="min-h-screen relative z-10">
         <Navbar />
         <HeroSection />
         <AboutSection />

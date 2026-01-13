@@ -47,7 +47,7 @@ const SiteSettings = () => {
                     </p>
                 </div>
                 <div className="flex gap-2">
-                    <Button variant="neo" onClick={handleReset}>
+                    <Button variant="outline" onClick={handleReset}>
                         <RotateCcw className="w-4 h-4" />
                         Réinitialiser
                     </Button>
@@ -81,7 +81,7 @@ const SiteSettings = () => {
                                     name="name"
                                     value={formData.name}
                                     onChange={handleChange}
-                                    placeholder="Les Écoles Melrose"
+                                    placeholder="Georges Claude Private Academy"
                                 />
                             </div>
                             <div>
@@ -90,7 +90,7 @@ const SiteSettings = () => {
                                     name="tagline"
                                     value={formData.tagline}
                                     onChange={handleChange}
-                                    placeholder="Préscolaire & Primaire"
+                                    placeholder="Établissement Privé"
                                 />
                             </div>
                         </CardContent>

@@ -89,7 +89,7 @@ const ChatbotSettings = () => {
                                     name="name"
                                     value={formData.name}
                                     onChange={handleChange}
-                                    placeholder="Assistant Melrose"
+                                    placeholder="Assistant Georges Claude"
                                 />
                             </div>
                             <div>
@@ -154,7 +154,7 @@ const ChatbotSettings = () => {
                                     value={formData.systemPrompt}
                                     onChange={handleChange}
                                     rows={8}
-                                    placeholder="Tu es l'assistant virtuel des Écoles Melrose..."
+                                    placeholder="Tu es l'assistant virtuel de Georges Claude Academy..."
                                 />
                             </div>
                             <div>

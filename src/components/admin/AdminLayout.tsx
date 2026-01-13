@@ -51,14 +51,14 @@ const AdminLayout = () => {
             {/* Logo */}
             <div className={`p-4 border-b border-border ${sidebarCollapsed && !mobile ? 'px-2' : ''}`}>
                 <div className="flex items-center gap-3">
-                    <img src={logo} alt="Melrose" className={`${sidebarCollapsed && !mobile ? 'h-10' : 'h-12'} w-auto`} />
+                    <img src={logo} alt="Georges Claude Academy" className={`${sidebarCollapsed && !mobile ? 'h-10' : 'h-12'} w-auto`} />
                     {(!sidebarCollapsed || mobile) && (
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             className="flex-1 min-w-0"
                         >
-                            <p className="font-bold font-display text-sm truncate">Les Écoles Melrose</p>
+                            <p className="font-bold font-display text-sm truncate">Georges Claude Academy</p>
                             <p className="text-xs text-muted-foreground">{t.nav.admin}</p>
                         </motion.div>
                     )}
@@ -122,7 +122,7 @@ const AdminLayout = () => {
                     </motion.div>
                 )}
                 <Button
-                    variant="neo"
+                    variant="ghost"
                     size={sidebarCollapsed && !mobile ? 'icon' : 'default'}
                     onClick={handleLogout}
                     className={`w-full ${sidebarCollapsed && !mobile ? '' : ''}`}
@@ -161,7 +161,7 @@ const AdminLayout = () => {
             {/* Mobile Menu Button */}
             <div className={`lg:hidden fixed top-4 z-50 ${direction === 'rtl' ? 'right-4' : 'left-4'}`}>
                 <Button
-                    variant="neo"
+                    variant="ghost"
                     size="icon"
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 >

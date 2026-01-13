@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Send, Sparkles, Navigation as NavIcon, Phone, Mail, Volume2, VolumeX } from 'lucide-react';
+import { X, Send, Sparkles, Navigation as NavIcon, Phone, Mail, Volume2, VolumeX, Bot } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
@@ -8,7 +8,6 @@ import { useSiteContent } from '@/contexts/SiteContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { MCPClient } from '@/lib/mcp-client';
 import { useTextToSpeech } from '@/hooks/use-tts';
-import chatbotAvatar from '@/assets/chatbot-avatar.png';
 
 interface Message {
   role: 'user' | 'bot' | 'system';
@@ -228,15 +227,11 @@ export const Chatbot = () => {
         animate={{ scale: 1 }}
         transition={{ delay: 1, type: 'spring' }}
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-[100] w-16 h-16 md:w-20 md:h-20 rounded-full shadow-neo-lg bg-gradient-to-br from-melrose-purple to-melrose-blue p-1 hover:shadow-glow-rainbow transition-all"
+        className="fixed bottom-6 right-6 z-[100] w-16 h-16 md:w-20 md:h-20 rounded-full shadow-2xl glass-high border border-white/40 p-0 hover:scale-110 transition-all flex items-center justify-center group"
         aria-label="Open chat"
       >
-        <img
-          src={chatbotAvatar}
-          alt="Assistant"
-          className="w-full h-full rounded-full object-cover"
-          loading="lazy"
-        />
+        <Bot className="w-8 h-8 md:w-10 md:h-10 text-white group-hover:animate-pulse" />
+        <div className="absolute -top-1 -right-1 w-4 h-4 md:w-5 md:h-5 bg-green-500 rounded-full border-2 border-white animate-pulse" />
       </motion.button>
 
       {/* Chat popup */}
@@ -248,22 +243,19 @@ export const Chatbot = () => {
             exit={{ opacity: 0, y: 20, scale: 0.9 }}
             className="fixed bottom-24 right-6 z-[100] w-[350px] max-w-[calc(100vw-2rem)]"
           >
-            <Card variant="glass" className="overflow-hidden glow-rainbow">
+            <Card variant="glass" className="overflow-hidden glass-strong border-white/30 shadow-xl ring-0">
               {/* Header */}
-              <div className="p-4 bg-gradient-to-r from-melrose-purple to-melrose-blue flex items-center gap-3">
+              <div className="p-4 bg-white/10 backdrop-blur-xl flex items-center gap-3 border-b border-white/20">
                 <div className="relative">
-                  <img
-                    src={chatbotAvatar}
-                    alt="Assistant"
-                    className="w-12 h-12 rounded-full border-2 border-white/50"
-                    loading="lazy"
-                  />
-                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white" />
+                  <div className="w-12 h-12 rounded-full border-2 border-white/40 glass-mid flex items-center justify-center shadow-md">
+                    <Bot className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-3.5 h-3.5 bg-green-500 rounded-full border-2 border-white shadow-sm" />
                 </div>
                 <div className="flex-1 text-white">
-                  <p className="font-bold">{chatbot.name}</p>
-                  <p className="text-xs opacity-80 flex items-center gap-1">
-                    <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                  <p className="font-bold drop-shadow-sm">{chatbot.name}</p>
+                  <p className="text-[10px] uppercase font-bold tracking-wider opacity-80 flex items-center gap-1.5">
+                    <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse shadow-[0_0_8px_rgba(74,222,128,0.5)]" />
                     {language === 'fr' ? 'En ligne' : 'متصل'}
                   </p>
                 </div>
@@ -274,10 +266,10 @@ export const Chatbot = () => {
                     variant="ghost"
                     size="icon"
                     onClick={toggleMute}
-                    className="text-white hover:bg-white/20 mr-1"
+                    className="text-white hover:bg-white/20 mr-1 rounded-full w-9 h-9"
                     title={isMuted ? "Activer le son" : "Désactiver le son"}
                   >
-                    {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+                    {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
                   </Button>
                 )}
 
@@ -285,7 +277,7 @@ export const Chatbot = () => {
                   variant="ghost"
                   size="icon"
                   onClick={() => setIsOpen(false)}
-                  className="text-white hover:bg-white/20"
+                  className="text-white hover:bg-white/20 rounded-full w-9 h-9"
                   aria-label="Close chat"
                 >
                   <X className="w-5 h-5" />
@@ -293,30 +285,30 @@ export const Chatbot = () => {
               </div>
 
               {/* Quick Actions */}
-              <div className="p-3 bg-background/50 border-b border-border/50">
-                <p className="text-xs text-muted-foreground mb-2">
+              <div className="p-3 bg-white/5 backdrop-blur-md border-b border-white/10">
+                <p className="text-[10px] text-white/60 font-bold uppercase tracking-widest mb-2 px-1">
                   {language === 'fr' ? 'Actions rapides' : 'إجراءات سريعة'}
                 </p>
                 <div className="grid grid-cols-4 gap-2">
                   {quickActions.map((action, idx) => (
                     <motion.button
                       key={idx}
-                      whileHover={{ scale: 1.05 }}
+                      whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.15)' }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => handleQuickAction(action.prompt)}
-                      className="flex flex-col items-center gap-1 p-2 rounded-xl bg-background shadow-neo-sm hover:shadow-neo transition-all min-h-[50px]"
+                      className="flex flex-col items-center justify-center gap-1 p-2 rounded-xl bg-white/10 border border-white/10 transition-all min-h-[55px] shadow-none"
                     >
                       {action.icon && (
-                        <action.icon className="w-5 h-5 text-melrose-purple" />
+                        <action.icon className="w-5 h-5 text-white" />
                       )}
-                      <span className="text-xs font-medium text-center">{action.label}</span>
+                      <span className="text-[10px] font-bold text-center leading-tight text-white/90 uppercase px-0.5">{action.label}</span>
                     </motion.button>
                   ))}
                 </div>
               </div>
 
               {/* Messages */}
-              <div className="h-80 overflow-y-auto p-4 space-y-3 bg-background/80">
+              <div className="h-80 overflow-y-auto p-4 space-y-3 bg-black/10 backdrop-blur-sm">
                 {messages.map((msg, i) => (
                   <motion.div
                     key={i}
@@ -325,12 +317,12 @@ export const Chatbot = () => {
                     className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
                   >
                     <div className={`max-w-[85%] p-3 rounded-2xl text-sm ${msg.role === 'user'
-                      ? 'bg-melrose-purple text-white rounded-br-none rtl:rounded-bl-none rtl:rounded-br-2xl'
-                      : 'bg-muted rounded-bl-none rtl:rounded-br-none rtl:rounded-bl-2xl shadow-neo-sm'
-                      } font-quicksand rtl:font-tajawal`}>
+                      ? 'bg-melrose-purple text-white rounded-br-none rtl:rounded-bl-none rtl:rounded-br-2xl shadow-sm border border-white/10'
+                      : 'glass-mid border border-white/20 text-white rounded-bl-none rtl:rounded-br-none rtl:rounded-bl-2xl shadow-sm'
+                      } font-quicksand rtl:font-tajawal ripple`}>
                       {msg.toolCall && (
-                        <div className="flex items-center gap-1 text-xs opacity-70 mb-1">
-                          <Sparkles className="w-3 h-3 text-melrose-purple" />
+                        <div className="flex items-center gap-1 text-[10px] font-bold uppercase opacity-70 mb-1 text-white">
+                          <Sparkles className="w-3 h-3 text-white" />
                           <span>
                             {msg.toolCall === 'scrollToSection'
                               ? (language === 'fr' ? 'Navigation' : 'تنقل')
@@ -349,19 +341,19 @@ export const Chatbot = () => {
                     animate={{ opacity: 1 }}
                     className="flex justify-start"
                   >
-                    <div className="bg-muted rounded-2xl rounded-bl-none rtl:rounded-br-none rtl:rounded-bl-2xl shadow-neo-sm">
-                      <div className="flex gap-1">
+                    <div className="glass-mid border border-white/20 p-3 rounded-2xl rounded-bl-none rtl:rounded-br-none rtl:rounded-bl-2xl shadow-sm">
+                      <div className="flex gap-1.5 px-1">
                         {[0, 1, 2].map((i) => (
                           <motion.div
                             key={i}
-                            animate={{ scale: [1, 1.2, 1] }}
+                            animate={{ scale: [1, 1.4, 1], opacity: [0.3, 1, 0.3] }}
                             transition={{
-                              duration: 0.4,
+                              duration: 0.6,
                               repeat: Infinity,
-                              delay: i * 0.12,
+                              delay: i * 0.15,
                               ease: 'easeInOut',
                             }}
-                            className="w-2 h-2 rounded-full bg-melrose-purple"
+                            className="w-1.5 h-1.5 rounded-full bg-white"
                           />
                         ))}
                       </div>
@@ -372,20 +364,20 @@ export const Chatbot = () => {
               </div>
 
               {/* Input */}
-              <div className="p-3 border-t border-border/50 flex gap-2 bg-background/90">
+              <div className="p-3 border-t border-white/10 flex gap-2 bg-white/5 backdrop-blur-lg">
                 <Input
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && !e.shiftKey && handleSend()}
                   placeholder={language === 'fr' ? 'Votre message...' : 'رسالتك...'}
-                  className="flex-1 h-10 font-quicksand rtl:font-tajawal"
+                  className="flex-1 h-11 font-quicksand rtl:font-tajawal bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:bg-white/5 focus:border-white/30 transition-colors rounded-xl shadow-none"
                   disabled={isLoading}
                 />
                 <Button
                   variant="gradient"
                   size="icon"
                   onClick={handleSend}
-                  className="h-10 w-10"
+                  className="h-11 w-11 rounded-xl shadow-none brightness-110"
                   disabled={isLoading || !input.trim()}
                   aria-label="Send message"
                 >

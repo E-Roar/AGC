@@ -7,7 +7,7 @@ const openrouter = new OpenAI({
   dangerouslyAllowBrowser: true,
   defaultHeaders: {
     'HTTP-Referer': typeof window !== 'undefined' ? window.location.href : '',
-    'X-Title': 'Les Écoles Melrose',
+    'X-Title': 'Georges Claude Academy',
   },
 });
 

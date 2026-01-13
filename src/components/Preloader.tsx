@@ -11,10 +11,10 @@ export const Preloader = () => {
     const connection = (navigator as any).connection;
     const isSlowConnection = connection?.effectiveType === 'slow-2g' || connection?.effectiveType === '2g';
     const delay = isSlowConnection ? 1000 : 1500;
-    
+
     // Show skip button after delay
     const showSkipTimer = setTimeout(() => setCanSkip(true), delay);
-    
+
     // Hide preloader
     const hideTimer = setTimeout(() => {
       setIsLoading(false);
@@ -53,9 +53,9 @@ export const Preloader = () => {
                 transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
                 className="relative z-10 p-6 rounded-full shadow-neo-lg bg-background/80 backdrop-blur-sm"
               >
-                <img 
-                  src={logo} 
-                  alt="Les Écoles Melrose" 
+                <img
+                  src={logo}
+                  alt="Georges Claude Academy"
                   className="w-28 h-28 md:w-36 md:h-36 object-contain"
                 />
               </motion.div>
@@ -69,9 +69,9 @@ export const Preloader = () => {
               className="text-center"
             >
               <h2 className="text-xl md:text-2xl font-bold font-display gradient-text mb-1">
-                Les Écoles Melrose
+                Georges Claude Academy
               </h2>
-              <p className="text-sm text-muted-foreground">Préscolaire & Primaire</p>
+              <p className="text-sm text-muted-foreground">Établissement Privé à El Jadida</p>
             </motion.div>
 
             {/* Loading dots - simplified */}

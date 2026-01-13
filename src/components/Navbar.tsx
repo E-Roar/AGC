@@ -41,11 +41,11 @@ export const Navbar = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-          ? 'py-2 bg-background/80 backdrop-blur-xl shadow-neo'
-          : 'py-4 bg-transparent'
+          ? 'py-2 glass-mid backdrop-blur-md border-b border-white/10 shadow-lg'
+          : 'py-2 glass-mid backdrop-blur-md border-transparent'
           }`}
       >
-        <div className="container mx-auto px-4 flex items-center justify-between">
+        <div className="container mx-auto px-4 flex items-center justify-between relative">
           <motion.a
             href="#accueil"
             onClick={(e) => {
@@ -54,10 +54,13 @@ export const Navbar = () => {
             }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-3"
+            className="absolute top-2 left-4 z-50 flex items-center justify-center w-20 h-20 md:w-24 md:h-24 rounded-full glass-mid border border-white/20 shadow-lg p-2"
           >
-            <img src={logo} alt="Les Ecoles Melrose" className="h-16 md:h-24 w-auto" />
+            <img src={logo} alt="Georges Claude Academy" className="w-full h-full object-contain" />
           </motion.a>
+
+          {/* Spacer to push nav items right since logo is absolute */}
+          <div className="w-24 md:w-28" />
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-2">
@@ -76,7 +79,7 @@ export const Navbar = () => {
 
             {/* Language Toggle */}
             <Button
-              variant="neo"
+              variant="outline"
               size="icon"
               onClick={toggleLanguage}
               className="ml-2 w-10 h-10 rounded-full"
@@ -90,7 +93,7 @@ export const Navbar = () => {
             {/* Admin Login */}
             <Link to="/admin/login">
               <Button
-                variant="neo"
+                variant="outline"
                 size="icon"
                 className="ml-2 w-10 h-10 rounded-full text-melrose-purple hover:text-melrose-purple/80"
                 title={t.nav.admin}
@@ -103,7 +106,7 @@ export const Navbar = () => {
           {/* Mobile Menu Button - Left aligned in RTL, Right in LTR */}
           <div className="flex gap-2 lg:hidden">
             <Button
-              variant="neo"
+              variant="outline"
               size="icon"
               onClick={toggleLanguage}
               className="w-10 h-10 rounded-full"
@@ -114,7 +117,7 @@ export const Navbar = () => {
             </Button>
 
             <Button
-              variant="neo"
+              variant="outline"
               size="icon"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
@@ -132,7 +135,7 @@ export const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="fixed inset-0 z-40 pt-20 bg-background/98 backdrop-blur-xl lg:hidden"
+            className="fixed inset-0 z-40 pt-20 glass-high border-b border-white/20 lg:hidden"
             style={{ WebkitOverflowScrolling: 'touch' }}
           >
             <div className="container mx-auto px-4 py-4 flex flex-col gap-2 h-full overflow-y-auto">
@@ -143,7 +146,7 @@ export const Navbar = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ type: 'spring', delay: index * 0.05 }}
                   onClick={() => scrollToSection(item.href)}
-                  className="p-4 min-h-[44px] rounded-2xl shadow-neo text-lg font-semibold text-foreground hover:shadow-neo-lg active:scale-95 transition-all font-quicksand rtl:font-tajawal touch-manipulation"
+                  className="p-4 min-h-[44px] rounded-2xl glass-mid border border-white/10 text-lg font-semibold text-foreground active:scale-95 transition-all font-quicksand rtl:font-tajawal touch-manipulation shadow-lg"
                 >
                   {item.label}
                 </motion.button>
@@ -151,7 +154,7 @@ export const Navbar = () => {
 
               <Link to="/admin/login" onClick={() => setIsMobileMenuOpen(false)}>
                 <Button
-                  variant="neo"
+                  variant="outline"
                   size="lg"
                   className="w-full mt-4 flex items-center gap-2 min-h-[44px] touch-manipulation"
                 >

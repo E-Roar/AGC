@@ -82,7 +82,7 @@ const HeroSettings = () => {
                                     name="highlight"
                                     value={formData.highlight}
                                     onChange={handleChange}
-                                    placeholder="Les Écoles Melrose"
+                                    placeholder="Georges Claude Academy"
                                 />
                             </div>
                             <div>

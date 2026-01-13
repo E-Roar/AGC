@@ -32,7 +32,7 @@ const AdminLogin = () => {
             >
                 <div className="flex justify-end mb-4">
                     <Button
-                        variant="neo"
+                        variant="ghost"
                         size="sm"
                         onClick={toggleLanguage}
                         className="bg-white/80 backdrop-blur"
@@ -48,7 +48,7 @@ const AdminLogin = () => {
                     <CardHeader className="text-center pb-2">
                         <motion.img
                             src={logo}
-                            alt="Les Écoles Melrose"
+                            alt="Georges Claude Academy"
                             className="h-24 w-auto mx-auto mb-4"
                             initial={{ scale: 0.8 }}
                             animate={{ scale: 1 }}
@@ -70,7 +70,7 @@ const AdminLogin = () => {
                                 <div className="text-sm">
                                     <p className="font-semibold text-foreground">{t.common.demoMode}</p>
                                     <p className="text-muted-foreground mt-1">
-                                        Email: <code className="bg-background px-1 rounded">admin@melrose.ma</code>
+                                        Email: <code className="bg-background px-1 rounded">admin@georgesclaude.ma</code>
                                     </p>
                                     <p className="text-muted-foreground">
                                         {t.admin.password}: <code className="bg-background px-1 rounded">demo123</code>
@@ -99,7 +99,7 @@ const AdminLogin = () => {
                                         type="email"
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
-                                        placeholder="admin@melrose.ma"
+                                        placeholder="admin@georgesclaude.ma"
                                         className="pl-10 rtl:pl-3 rtl:pr-10"
                                         required
                                     />

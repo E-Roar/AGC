@@ -18,7 +18,7 @@ export const GallerySection = () => {
   const { gallery } = content;
 
   return (
-    <section id="galerie" className="py-24 bg-gradient-to-b from-background to-muted/30 overflow-hidden" dir="ltr">
+    <section id="galerie" className="py-24 bg-transparent overflow-hidden" dir="ltr">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
@@ -27,12 +27,14 @@ export const GallerySection = () => {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-              {gallery.title} <span className="gradient-text">{gallery.highlight}</span>
-            </h2>
-            <p className="text-lg text-muted-foreground font-quicksand rtl:font-tajawal">
-              {gallery.subtitle}
-            </p>
+            <div className="bg-white/5 rounded-[2rem] p-6 border border-white/20 backdrop-blur-md inline-block shadow-none">
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 text-white drop-shadow-lg">
+                {gallery.title} <span className="gradient-text brightness-150">{gallery.highlight}</span>
+              </h2>
+              <p className="text-lg text-white/90 font-quicksand rtl:font-tajawal drop-shadow-md">
+                {gallery.subtitle}
+              </p>
+            </div>
           </motion.div>
         </div>
 
@@ -111,7 +113,7 @@ export const GallerySection = () => {
           >
             {gallery.images.map((image) => (
               <SwiperSlide key={image.id} className="w-[300px] sm:w-[400px]">
-                <div className="relative group rounded-3xl overflow-hidden shadow-neo-lg aspect-[4/3] bg-white border-4 border-white">
+                <div className="relative group rounded-[2rem] overflow-hidden bg-white/5 backdrop-blur-md aspect-[4/3] border border-white/20 shadow-none">
                   <img
                     src={image.src}
                     alt={image.title}

@@ -77,7 +77,7 @@ const AboutSettings = () => {
                                         name="highlight"
                                         value={formData.highlight}
                                         onChange={handleChange}
-                                        placeholder="Melrose"
+                                        placeholder="Georges Claude"
                                     />
                                 </div>
                             </div>

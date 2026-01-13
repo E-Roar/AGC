@@ -40,6 +40,9 @@ export const translations = {
             phone: 'Téléphone',
             email: 'Email',
             statsHero: 'Stats Hero',
+            loginSubtitle: 'Connectez-vous pour gérer votre site',
+            password: 'Mot de passe',
+            login: 'Se connecter',
         },
         settings: {
             title: 'Titre',
@@ -89,6 +92,9 @@ export const translations = {
             phone: 'الهاتف',
             email: 'البريد الإلكتروني',
             statsHero: 'إحصائيات الواجهة',
+            loginSubtitle: 'تسجيل الدخول لإدارة الموقع',
+            password: 'كلمة المرور',
+            login: 'تسجيل الدخول',
         },
         settings: {
             title: 'العنوان',

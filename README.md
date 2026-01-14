@@ -1,73 +1,52 @@
-# Welcome to your Lovable project
+# Georges Claude Academy | El Jadida
+
+This repository contains the source code for the official website of Georges Claude Academy, a private educational institution located in El Jadida, Morocco.
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+**Official Website**: [georgesclaude.ma](https://georgesclaude.ma/)
 
-## How can I edit this code?
+## Development and Deployment
 
-There are several ways of editing your application.
+### Getting Started
 
-**Use Lovable**
+To run the project locally, follow these steps:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+1. **Clone the repository**:
+   ```sh
+   git clone <YOUR_GIT_URL>
+   ```
 
-Changes made via Lovable will be committed automatically to this repo.
+2. **Install dependencies**:
+   ```sh
+   npm install
+   ```
 
-**Use your preferred IDE**
+3. **Start the development server**:
+   ```sh
+   npm run dev
+   ```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Technologies Used
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **Framework**: React with Vite
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS & Vanilla CSS
+- **Components**: shadcn-ui
+- **Animations**: Framer Motion & Lucide Icons
+- **Deployment**: Vercel
 
-Follow these steps:
+### Deployment to Vercel
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+The site is configured for deployment on Vercel. Ensure that `vercel.json` is present in the root directory to handle SPA routing correctly.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## Features
 
-# Step 3: Install the necessary dependencies.
-npm i
+- **Responsive Design**: Fully optimized for mobile and desktop devices.
+- **Admin Dashboard**: Secure management of site content (Hero, About, Programs, Gallery, etc.).
+- **i18n Support**: Multi-language support for French and Arabic (RTL).
+- **PWA Support**: Installable on mobile devices with offline capabilities.
+- **Neomorphic UI**: Premium "Warm Brown/Bronze" matte design system.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+---
+© 2025 Georges Claude Academy. All rights reserved.

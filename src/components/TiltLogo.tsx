@@ -80,11 +80,11 @@ const TiltLogo = () => {
                 perspective: 1000
             }}
             // Base sizes kept from previous edit
-            className="relative w-[140px] h-[140px] sm:w-[280px] sm:h-[280px] lg:w-[340px] lg:h-[340px] flex items-center justify-center"
+            className="relative w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] lg:w-[340px] lg:h-[340px] flex items-center justify-center -mb-8 sm:mb-0"
         >
             {/* 1. Frosted glass circle (Deepest) */}
             <div
-                className="absolute w-[140px] h-[140px] sm:w-[290px] sm:h-[290px] lg:w-[350px] lg:h-[350px] rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-none"
+                className="absolute w-[240px] h-[240px] sm:w-[290px] sm:h-[290px] lg:w-[350px] lg:h-[350px] rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-none"
                 style={{ transform: 'translateZ(-40px)' }}
             />
 

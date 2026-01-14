@@ -201,18 +201,22 @@ const AdminLayout = () => {
                     marginRight: direction === 'rtl' ? (sidebarCollapsed ? 72 : 280) : 0
                 }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
-                className={`flex-1 ${direction === 'ltr' ? 'lg:ml-0' : 'lg:mr-0'}`}
+                className={`flex-1 min-w-0 transition-all duration-300 lg:static fixed inset-0 overflow-y-auto ${direction === 'ltr' ? 'lg:ml-0' : 'lg:mr-0'}`}
+                style={{
+                    marginLeft: window.innerWidth < 1024 ? 0 : undefined,
+                    marginRight: window.innerWidth < 1024 ? 0 : undefined
+                }}
             >
                 {/* Demo Banner */}
-                <div className="bg-gradient-to-r from-melrose-yellow to-melrose-orange text-foreground px-4 py-2">
-                    <div className="container mx-auto flex items-center justify-center gap-2 text-sm font-medium">
-                        <AlertTriangle className="w-4 h-4" />
-                        <span>🔔 {t.common.demoMode}</span>
+                <div className="bg-gradient-to-r from-melrose-yellow to-melrose-orange text-foreground px-4 py-2 sticky top-0 z-30 shadow-sm">
+                    <div className="container mx-auto flex items-center justify-center gap-2 text-xs sm:text-sm font-medium">
+                        <AlertTriangle className="w-4 h-4 shrink-0" />
+                        <span className="truncate">🔔 {t.common.demoMode}</span>
                     </div>
                 </div>
 
                 {/* Page content */}
-                <div className="p-4 lg:p-8 pt-16 lg:pt-8 font-quicksand rtl:font-tajawal">
+                <div className="p-4 sm:p-6 lg:p-8 pt-20 lg:pt-8 font-quicksand rtl:font-tajawal max-w-7xl mx-auto w-full">
                     <Outlet />
                 </div>
             </motion.main>

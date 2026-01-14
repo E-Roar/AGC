@@ -17,7 +17,6 @@ export const PWAPrompt = () => {
         const handleBeforeInstallPrompt = (e: any) => {
             e.preventDefault();
             setDeferredPrompt(e);
-            console.log('PWA: Prompt available');
             setTimeout(() => setIsVisible(true), 1500);
         };
 
@@ -25,7 +24,6 @@ export const PWAPrompt = () => {
 
         // Special handling for iOS
         if (isIosDevice && !(window.navigator as any).standalone) {
-            console.log('PWA: iOS detected');
             setTimeout(() => setIsVisible(true), 1500);
         }
 
@@ -36,21 +34,19 @@ export const PWAPrompt = () => {
 
     const handleInstallClick = async () => {
         if (!deferredPrompt) {
-            console.error('PWA: Install prompt not available yet');
             return;
         }
 
         try {
             deferredPrompt.prompt();
             const { outcome } = await deferredPrompt.userChoice;
-            console.log(`PWA: User choice: ${outcome}`);
 
             if (outcome === 'accepted') {
                 setIsVisible(false);
             }
             setDeferredPrompt(null);
         } catch (error) {
-            console.error('PWA: Installation failed', error);
+            // Silently fail or handle gracefully in production
         }
     };
 

@@ -68,7 +68,7 @@ const GallerySettings = () => {
                     </p>
                 </div>
                 <div className="flex flex-wrap gap-3">
-                    <Button variant="neo" onClick={handleAddImage} className="flex-1 sm:flex-none h-11 px-6 rounded-xl">
+                    <Button variant="outline" onClick={handleAddImage} className="flex-1 sm:flex-none h-11 px-6 rounded-xl">
                         <Plus className="w-4 h-4 mr-2" />
                         Ajouter
                     </Button>

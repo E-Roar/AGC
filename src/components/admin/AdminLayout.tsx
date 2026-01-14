@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '@/contexts/AuthContext';
@@ -29,6 +29,15 @@ const AdminLayout = () => {
     const location = useLocation();
     const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsDesktop(window.innerWidth >= 1024);
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const navItems = [
         { label: t.admin.dashboard, href: '/admin', icon: LayoutDashboard, end: true },
@@ -197,15 +206,11 @@ const AdminLayout = () => {
             <motion.main
                 initial={false}
                 animate={{
-                    marginLeft: direction === 'ltr' ? (sidebarCollapsed ? 72 : 280) : 0,
-                    marginRight: direction === 'rtl' ? (sidebarCollapsed ? 72 : 280) : 0
+                    marginLeft: isDesktop ? (direction === 'ltr' ? (sidebarCollapsed ? 72 : 280) : 0) : 0,
+                    marginRight: isDesktop ? (direction === 'rtl' ? (sidebarCollapsed ? 72 : 280) : 0) : 0
                 }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
-                className={`flex-1 min-w-0 transition-all duration-300 lg:static fixed inset-0 overflow-y-auto ${direction === 'ltr' ? 'lg:ml-0' : 'lg:mr-0'}`}
-                style={{
-                    marginLeft: window.innerWidth < 1024 ? 0 : undefined,
-                    marginRight: window.innerWidth < 1024 ? 0 : undefined
-                }}
+                className={`flex-1 min-w-0 transition-all duration-300 overflow-y-auto`}
             >
                 {/* Demo Banner */}
                 <div className="bg-gradient-to-r from-melrose-yellow to-melrose-orange text-foreground px-4 py-2 sticky top-0 z-30 shadow-sm">
